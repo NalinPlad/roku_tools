@@ -2,7 +2,7 @@
 //
 // Type > press {button}
 // as a shortcut to press a button
-
+const keypress = require('keypress');
 const prompt = require('prompt-sync')({ sigint: true });
 const { spawn } = require('node:child_process');
 
@@ -21,6 +21,10 @@ if(!ValidateIPaddress(ip)){
 }
 
 console.log('IP: ' + ip);
+
+// Arrow keys
+keypress(process.stdin);
+
 
 while (true){
     command = prompt("Roku@"+ip+"> ");
