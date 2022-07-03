@@ -1,3 +1,8 @@
+// Roku command execution using api endpoints
+//
+// Type > press {button}
+// as a shortcut to press a button
+
 const prompt = require('prompt-sync')({ sigint: true });
 const { spawn } = require('node:child_process');
 
