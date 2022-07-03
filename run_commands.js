@@ -31,7 +31,11 @@ while (true){
 
     if(command.startsWith('press')){
     command = 'keypress/' + command.split(' ')[1]
+    } else if(command.startsWith('launch')){
+    command = 'launch/' + command.split(' ')[1] + '?' + command.split(' ')[2]
     }
+
+
 
     const curl = spawn('curl', ['-d', '', "http://"+ip+":8060/"+command]);
     
