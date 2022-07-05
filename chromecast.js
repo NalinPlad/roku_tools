@@ -1,4 +1,4 @@
-// Roku command execution using api endpoints
+// Chromecast command execution using api endpoints
 //
 // Type > press {button}
 // as a shortcut to press a button
@@ -27,17 +27,17 @@ keypress(process.stdin);
 
 
 while (true){
-    command = prompt("Roku@"+ip+"> ");
+    command = prompt("Chromecast@"+ip+"> ");
 
     if(command.startsWith('press')){
     command = 'keypress/' + command.split(' ')[1]
     } else if(command.startsWith('launch')){
-    command = 'launch/' + command.split(' ')[1] + '?' + command.split(' ')[2]
+    command = 'apps/' + command.split(' ')[1] + '?' + command.split(' ')[2]
     }
 
 
 
-    const curl = spawn('curl', ['-d', '', "http://"+ip+":8060/"+command]);
+    const curl = spawn('curl', ['-d', '', "https://"+ip+":8443/"+command]);
     
     curl.stdout.on('data', (data) => {
       console.log(`stdout: ${data}`);
